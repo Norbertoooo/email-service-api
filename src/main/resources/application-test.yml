@@ -1,0 +1,11 @@
+spring:
+  mail:
+    host: localhost
+    protocol: smtp
+    port: 1025
+    username:
+    password:
+    properties.mail.smtp:
+      auth: false
+      starttls.enable: true
+      sssl.trust: smtp.gmail.com

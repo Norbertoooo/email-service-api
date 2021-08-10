@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+
+  mongo-db:
+    container_name: mongo-db
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGODB_APPLICATION_DATABASE=email
+    ports:
+      - "27017:27017"
+  mailhog:
+    container_name: mailhog
+    image: mailhog/mailhog:latest
+    ports:
+      - "1025:1025"
+      - "8025:8025"

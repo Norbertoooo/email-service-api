@@ -1,0 +1,19 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    protocol: smtp
+    port: 587
+    username: rafa.tcc.umj@gmail.com
+    password: rafatcc2021
+    properties.mail.smtp:
+          auth: true
+          starttls.enable: true
+          sssl.trust: smtp.gmail.com
+  data:
+    mongodb:
+      authentication-database: admin
+      database: email
+      username: root
+      password: root
+      port: 27017
+      host: localhost
