@@ -6,18 +6,20 @@ import lombok.Data;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import static com.vitu.email.service.api.utils.Constantes.*;
+
 @Data
 @Builder
 public class EmailRequest {
 
-    @Email(message = "Email informado não válido!")
-    @NotBlank(message = "Campo email não pode ser nulo!")
+    @Email(message = MENSAGEM_VALIDACAO_EMAIL_NAO_VALIDO)
+    @NotBlank(message = MENSAGEM_VALICADACAO_EMAIL )
     private String emailDestino;
 
-    @NotBlank(message = "Campo conteudo não pode ser nulo!")
+    @NotBlank(message = MENSAGEM_VALICADACAO_CONTEUDO)
     private String conteudo;
 
-    @NotBlank(message = "Campo titulo não pode ser nulo!")
+    @NotBlank(message = MENSAGEM_VALICADACAO_TITULO)
     private String titulo;
 
 }

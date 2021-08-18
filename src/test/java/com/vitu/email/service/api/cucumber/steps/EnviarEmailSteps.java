@@ -1,6 +1,9 @@
 package com.vitu.email.service.api.cucumber.steps;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vitu.email.service.api.domain.Email;
+import com.vitu.email.service.api.repository.EmailRepository;
+import com.vitu.email.service.api.service.EmailService;
 import com.vitu.email.service.api.web.request.EmailRequest;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
@@ -25,6 +28,8 @@ public class EnviarEmailSteps {
 
     @Autowired
     private MockMvc mockMvc;
+
+    private EmailRepository emailRepository;
 
     private ResultActions resultActions;
 
@@ -72,4 +77,17 @@ public class EnviarEmailSteps {
         assert retorno.contains(mensagem);
     }
 
+    @E("deverá constar os seguintes dados na base de dados:")
+    public void deveráConstarOsSeguintesDadosNaBaseDeDados(List<Email> emails) throws Exception {
+        log.info("Emails: {}", emails);
+        Email email = emails.stream().findFirst().orElseThrow();
+        log.info(email);
+        resultActions.andExpect(jsonPath("email.status").value(email.getStatus().toString())).andDo(print());
+    }
+
+    @E("o código de retorno da requisição deva ser {int}")
+    public void oCódigoDeRetornoDaRequisiçãoDevaSer(int codigoRetorno) throws Exception {
+        log.info("Código retorno: {}", codigoRetorno);
+        resultActions.andExpect(status().is(codigoRetorno));
+    }
 }

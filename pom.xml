@@ -39,10 +39,10 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+        <!-- swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
+            <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
 
